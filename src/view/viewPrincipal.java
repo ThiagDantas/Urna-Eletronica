@@ -11,6 +11,7 @@ import java.util.List;
  * @author thiag
  */
 public class viewPrincipal extends javax.swing.JFrame {
+    //carregando a nova lista de eleitor/candidato
     List<Eleitor>listaDeEleitor=new ArrayList<>();
     List<Candidato>listaCandidatos=new ArrayList<>();
     
@@ -107,7 +108,7 @@ public class viewPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        viewValidaEleitor telaValidar=new viewValidaEleitor();
+        ViewValidarEleitor telaValidar=new ViewValidarEleitor();
         telaValidar.setVisible(true);
         System.out.println("Fui clicado");
     }//GEN-LAST:event_jButton1ActionPerformed
