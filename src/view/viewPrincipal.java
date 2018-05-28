@@ -1,12 +1,25 @@
 package view;
 
+import classes.Candidato;
+import classes.Eleitor;
 import classes.Urna;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author thiag
  */
 public class viewPrincipal extends javax.swing.JFrame {
+    List<Eleitor>listaDeEleitor=new ArrayList<>();
+    List<Candidato>listaCandidatos=new ArrayList<>();
+    
+    Urna idUrna;
+    
+    public viewPrincipal(Urna urna){
+        this.idUrna=urna;
+        initComponents();
+    }
 
 
     public viewPrincipal() {
@@ -79,8 +92,7 @@ public class viewPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,8 +107,9 @@ public class viewPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//arrumar para puxar a tela de voto        
-//ViewUrna novoVoto=new ViewUrna(this);
+        viewValidaEleitor telaValidar=new viewValidaEleitor();
+        telaValidar.setVisible(true);
+        System.out.println("Fui clicado");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
