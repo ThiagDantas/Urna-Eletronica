@@ -108,7 +108,7 @@ public class ViewValidarEleitor extends javax.swing.JFrame {
            criarUrna.setVisible(true);
        }
        else{
-           System.out.println("Pelo menos ta clicando");
+           //System.out.println("Pelo menos ta clicando");
        }
     }//GEN-LAST:event_btnChecarActionPerformed
 

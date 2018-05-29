@@ -5,6 +5,8 @@
  */
 package view;
 
+import classes.Mesario;
+import dao.MesarioDAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,14 +164,21 @@ public class ViewLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeMesActionPerformed
 
     private void bnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnEntrarActionPerformed
-        if(this.validaLogin(txtNomeMes.getText(), new String (txtIDMesario.getText()))){
-            viewPrincipal vp =new viewPrincipal();
-            vp.setVisible(true);
-            this.dispose();
-        }
-        else{
-            lblErro.setText("Nome ou ID inválidos");
-            txtIDMesario.hasFocus();
+        if(txtNomeMes.getText().equals("") || txtIDMesario.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Digite o Numero do Titulo");
+        }else{
+           
+            //PEGA O MESARIO ATRAVES DO LOGIN E SENHA
+             Mesario mesario = new MesarioDAO().getMesario(txtNomeMes.getText(), txtIDMesario.getText());
+             
+             if(mesario == null){
+                 JOptionPane.showMessageDialog(this, "Mesário não cadastrado");
+             }else{
+                 //JOptionPane.showMessageDialog(this,"Bem vindo(a) "+ mesario.getNomeMesario());
+                 viewPrincipal vp = new viewPrincipal(txtNomeMes.getText(), txtIDMesario.getText());
+                 vp.setVisible(true);
+                 this.dispose();
+            }
         }
     }//GEN-LAST:event_bnEntrarActionPerformed
 

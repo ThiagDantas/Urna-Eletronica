@@ -5,20 +5,45 @@ package classes;
  *
  * @author thiag
  */
-public class Candidato extends Usuario{
+public class Candidato {
 
-    public String getUrlFoto() {
-        return urlFoto;
-    }
-    //CONSTRUTOR DO CANDIDATO
-    public Candidato(String nome, String id, String urlFoto,int numVotos){
-        super(nome,id);
-        this.numVotos=numVotos;
-        this.urlFoto=urlFoto;
+    String nomeCandidato;
+    String idCandidato;
+    String partidoCandidato;
+    String concorre;
+    int numVotos;
+
+    public String getNomeCandidato() {
+        return nomeCandidato;
     }
 
-    public void setUrlFoto(String urlFoto) {
-        this.urlFoto = urlFoto;
+    public void setNomeCandidato(String nomeCandidato) {
+        this.nomeCandidato = nomeCandidato;
+    }
+    
+ 
+    public String getIdCandidato() {
+        return idCandidato;
+    }
+
+    public void setIdCandidato(String idCandidato) {
+        this.idCandidato = idCandidato;
+    }
+
+    public String getPartidoCandidato() {
+        return partidoCandidato;
+    }
+
+    public void setPartidoCandidato(String partidoCandidato) {
+        this.partidoCandidato = partidoCandidato;
+    }
+
+    public String getConcorre() {
+        return concorre;
+    }
+
+    public void setConcorre(String concorre) {
+        this.concorre = concorre;
     }
 
     public int getNumVotos() {
@@ -28,6 +53,6 @@ public class Candidato extends Usuario{
     public void setNumVotos(int numVotos) {
         this.numVotos = numVotos;
     }
-    private String urlFoto;
-    private int numVotos;
+    
+
 }

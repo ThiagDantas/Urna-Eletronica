@@ -66,7 +66,7 @@ public class Urna {
             eleitorQueJaVotou.add(obj);
         }
             for(int i=0; i<todosEleitores.size();i++){
-                if (listaDeCandidatos.get(i).getId()==numCandidato){
+                if (listaDeCandidatos.get(i).getIdCandidato()==numCandidato){
                     listaDeCandidatos.get(i).setNumVotos(listaDeCandidatos.get(i).getNumVotos()+1);
                     
                 }

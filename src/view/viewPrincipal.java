@@ -2,16 +2,19 @@ package view;
 
 import classes.Candidato;
 import classes.Eleitor;
+import classes.Mesario;
 import classes.Urna;
+import dao.MesarioDAO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author thiag
  */
 public class viewPrincipal extends javax.swing.JFrame {
-    //carregando a nova lista de eleitor/candidato
+   /* //carregando a nova lista de eleitor/candidato
     List<Eleitor>listaDeEleitor=new ArrayList<>();
     List<Candidato>listaCandidatos=new ArrayList<>();
     
@@ -20,6 +23,25 @@ public class viewPrincipal extends javax.swing.JFrame {
     public viewPrincipal(Urna urna){
         this.idUrna=urna;
         initComponents();
+    }*/
+    
+    String login = "";
+    String senha = "";
+
+    public viewPrincipal(String login, String senha) {
+        this.login += login;
+        this.senha += senha;
+        initComponents();
+    }
+
+    public viewPrincipal(Urna nvUrna) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    //PEGA O PAPEL DO MESARIO PARA FAZER O BOLETIM DE URNA
+    public String papelMesario(String login,String senha){
+         Mesario mesario = new MesarioDAO().getMesario(login, senha);   
+        return mesario.getPapel();
     }
 
 
@@ -104,7 +126,13 @@ public class viewPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+                //VERIFICA SE O MESARIO PODE FAZER O BOLETIM DE URNA     
+        Mesario mesario = new MesarioDAO().getMesario(login, senha);  
+            if(papelMesario(login, senha).equals("Presidente")){          
+                JOptionPane.showMessageDialog(viewPrincipal.this, mesario.getNomeMesario() +" Deseja fazer o boletim de urna");
+            }else{
+                JOptionPane.showMessageDialog(viewPrincipal.this, mesario.getNomeMesario() + " Não pode fazer o boletim de urna" );
+            }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
